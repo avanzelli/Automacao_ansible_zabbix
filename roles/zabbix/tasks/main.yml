@@ -9,6 +9,7 @@
   selinux:
     policy: targeted
     state: disabled
+  ignore_errors: yes
 
 - name: "Configurando IPTables (zabbix_agent_listenport)"
   when: ansible_os_family == "RedHat" and ansible_distribution_major_version == '6'
@@ -32,6 +33,7 @@
   when: zabbix_agent_firewalld_enable | bool
   notify:
     - firewalld-reload
+  ignore_errors: yes
   tags: zabbix_agent_firewalld_enable
 
 
