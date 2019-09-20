@@ -1,0 +1,29 @@
+---
+# handlers file for zabbix-agent
+
+#- name: restart zabbix-agentttttt
+#  service:
+#    name: "{{ zabbix_agent_service }}"
+#    state: started
+#    daemon_reload: yes
+#    enabled: yes
+#  become: yes
+#  when:
+#    - not zabbix_agent_docker
+
+- name: restart zabbix-agent
+  systemd:
+    state: started
+    name: zabbix-agent
+    enabled: yes
+
+- name: firewalld-reload
+  when: ansible_os_family == "RedHat" and ansible_distribution_major_version == '7'
+  command: "firewall-cmd --reload"
+
+- name: restart win zabbix agent
+  win_service:
+    name: "{{ zabbix_win_agent_service }}"
+    state: restarted
+    enabled: yes
+
