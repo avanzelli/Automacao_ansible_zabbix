@@ -1,4 +1,4 @@
 - name: Default Playbook - Starting Deploy
-  hosts: PROD2 
+  hosts: PROD3 
   roles:
     - zabbix

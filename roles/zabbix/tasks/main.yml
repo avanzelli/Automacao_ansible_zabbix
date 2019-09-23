@@ -1,9 +1,10 @@
 ---
 
-#- name: "Instala libselinux"
-#  yum:
-#    name: libselinux-python 
-#    state: present
+- name: "Instala libselinux"
+  yum:
+    name: libselinux-python 
+    state: present
+  ignore_errors: yes
 
 - name: "Desabilitando SeLinux"
   selinux:
@@ -75,8 +76,7 @@
   become: yes
 
 - name: "Copiando arquivos userparameters_iostat"
-  when: ansible_os_family == "RedHat" and ansible_distribution_major_version == '7'
-  copy:
+  template:
     src: userparameter_iostat.conf
     dest: /etc/zabbix/zabbix_agentd.d/userparameter_iostat.conf
     owner: root
