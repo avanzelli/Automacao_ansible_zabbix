@@ -5,8 +5,8 @@ zabbix_version_patch: 0
 zabbix_repo: zabbix
 zabbix_agent_package: zabbix-agent
 zabbix_agent_package_state: present
-zabbix_agent_server: pxzb01,hxzb01
-zabbix_agent_serveractive: pxzb01,hxzb01
+zabbix_agent_server: pxzb01
+zabbix_agent_serveractive: pxzb01
 zabbix_selinux: False
 
 # Zabbix role related vars
@@ -26,9 +26,9 @@ zabbix_api_user: apizabbix
 zabbix_api_pass: "Prod%23819"
 zabbix_api_create_hostgroup: False
 zabbix_api_create_hosts: True
-zabbix_create_hostgroup: present  # or absent
+zabbix_create_hostgroup: absent  # or absent
 zabbix_create_host: present       # or absent
-zabbix_update_host: yes
+zabbix_update_host: no
 zabbix_host_status: enabled       # or disabled
 zabbix_proxy: null
 zabbix_inventory_mode: disabled
