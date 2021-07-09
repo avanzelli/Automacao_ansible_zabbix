@@ -5,8 +5,8 @@ zabbix_version_patch: 0
 zabbix_repo: zabbix
 zabbix_agent_package: zabbix-agent
 zabbix_agent_package_state: present
-zabbix_agent_server: pxzb01
-zabbix_agent_serveractive: pxzb01
+zabbix_agent_server: HOSTNAME_ZABBIX_SERVER
+zabbix_agent_serveractive: HOSTNAME_ZABBIX_SERVER
 zabbix_selinux: False
 
 # Zabbix role related vars
@@ -21,9 +21,9 @@ zabbix_agent_os_family: "{{ ansible_os_family }}"
 
 
 # Zabbix API stuff
-zabbix_url: "https://mis.energia.org.br/zabbix/"
-zabbix_api_user: apizabbix
-zabbix_api_pass: "Prod%23819"
+zabbix_url: "https://URL_ZABBIX/zabbix/"
+zabbix_api_user: USER_API_ZABBIX
+zabbix_api_pass: "PASS_API_ZABBIX"
 zabbix_api_create_hostgroup: False
 zabbix_api_create_hosts: True
 zabbix_create_hostgroup: absent  # or absent
